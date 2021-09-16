@@ -7,6 +7,8 @@ PokePedia is a single web application with three features:
 3. My Captured Pokemon : List of name Pokemons we captured.
 This miniproject using an open source [PokeAPI.](https://pokeapi.co/) 
 
+Credit for PokeBall : Icons made by <a href="https://www.flaticon.com/authors/roundicons-freebies" title="Roundicons Freebies">Roundicons Freebies</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+
 <br>
 
 # TechStack
