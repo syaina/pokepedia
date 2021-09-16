@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
 
+import DeleteIcon from "@material-ui/icons/Delete";
+
 const Card = styled.div`
   padding: 1.3rem 1rem;
   padding-bottom: 1rem;
@@ -60,7 +62,7 @@ const Flex = styled.div((props) => ({
   justifyContent: props.center && `center`,
 }));
 
-export default function CardMyPokemon({ onClick, pokemon }) {
+export default function CardMyPokemon({ onClick, pokemon, onDeleteClick }) {
   return (
     <Card onClick={onClick}>
       <Flex column center>
@@ -79,6 +81,7 @@ export default function CardMyPokemon({ onClick, pokemon }) {
         src={pokemon.sprites.other.dream_world.front_default}
         alt={pokemon.name}
       />
+      <DeleteIcon color="secondary" onClick={onDeleteClick} />
     </Card>
   );
 }

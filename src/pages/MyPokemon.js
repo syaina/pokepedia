@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CardMyPokemon from "../components/CardMyPokemon";
 import RowList from "../containers/RowList";
 import styled from "@emotion/styled";
@@ -9,9 +9,20 @@ const PageTitle = styled.h2`
 `;
 
 export default function MyPokemon() {
-  const [pokemons] = useState(
+  const [pokemons, setPokemons] = useState(
     JSON.parse(localStorage.getItem("capturedPokemon"))
   );
+
+  const handleReleasePokemon = (id) => {
+    console.log(pokemons);
+    const afterReleasePokemon = pokemons.filter((pokemon) => pokemon.id !== id);
+    console.log(afterReleasePokemon);
+    localStorage.setItem(
+      "capturedPokemon",
+      JSON.stringify(afterReleasePokemon)
+    );
+    setPokemons(JSON.parse(localStorage.getItem("capturedPokemon")));
+  };
 
   return pokemons ? (
     <>
@@ -21,7 +32,11 @@ export default function MyPokemon() {
       <RowList>
         {pokemons.map((pokemon, idx) => (
           <>
-            <CardMyPokemon pokemon={pokemon} key={idx} />
+            <CardMyPokemon
+              pokemon={pokemon}
+              key={idx}
+              onDeleteClick={() => handleReleasePokemon(pokemon.id)}
+            />
           </>
         ))}
       </RowList>
