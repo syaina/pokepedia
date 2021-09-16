@@ -88,14 +88,10 @@ export default function PokemonDetail() {
   const handleSubmit = (e) => {
     e.preventDefault();
     capturedPokemon(pokemon.id);
-    async function store() {
-      await saveToLocalStorage(pokemonName, pokemon);
-    }
-    setDialog(false);
+    saveToLocalStorage(pokemonName, pokemon);
+    //setDialog(false);
 
     submitBtn.current.click();
-    submitBtn.current.click();
-    store();
   };
 
   const handlePokeBall = () => {
@@ -130,13 +126,6 @@ export default function PokemonDetail() {
           title="Yeay! You catched a pokemon"
           onClick={() => setDialog(false)}
         >
-          {/* <FormMyPokemon
-            onButtonClick={handleButtonOk}
-            onChange={(e) => setPokemonName(e.target.value)}
-            value={pokemonName}
-            ref={submitBtn}
-          />
-           */}
           <Form onSubmit={handleSubmit}>
             <Input
               type="text"
@@ -146,6 +135,10 @@ export default function PokemonDetail() {
               placeholder="Name your pokemon"
               onChange={(e) => setPokemonName(e.target.value)}
             />
+            <span style={{ fontSize: 12, marginTop: 10, color: "red" }}>
+              *Please hit 'OK' 2x so Pokemon won't runaway and close this form
+              after
+            </span>
             <Submit type="submit" ref={submitBtn}>
               OK
             </Submit>
