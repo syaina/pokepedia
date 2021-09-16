@@ -13,6 +13,7 @@ Credit for PokeBall : Icons made by <a href="https://www.flaticon.com/authors/ro
 
 # TechStack
 Hosted on Heroku >> [Demo here.](https://pokedex-pokepedia.herokuapp.com/)
+
 Library | Version
 ---- | ----
 React | 16.13.1
